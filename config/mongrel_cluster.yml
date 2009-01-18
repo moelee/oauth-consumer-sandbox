@@ -1,0 +1,8 @@
+--- 
+cwd: /root/oauth-consumer-sandbox/current
+log_file: log/mongrel.log
+port: "3002"
+environment: production
+address: 0.0.0.0
+pid_file: tmp/pids/mongrel.pid
+servers: 1
