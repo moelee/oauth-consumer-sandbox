@@ -1,0 +1,1 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: schema_migrations: SELECT version FROM schema_migrations[0m
