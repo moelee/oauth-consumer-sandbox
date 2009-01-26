@@ -3,8 +3,8 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  ENV['OAUTH_SP_KEY'] = "geGitEHsvUOnZnPCm0fPjg"
-  ENV['OAUTH_SP_SECRET'] = "7K5x1jAIneCQ2o0jXxUQQKBm6XrHni3S7NrAeviKDQ"
+  ENV['CONSUMER_KEY'] = "geGitEHsvUOnZnPCm0fPjg"
+  ENV['CONSUMER_SECRET'] = "7K5x1jAIneCQ2o0jXxUQQKBm6XrHni3S7NrAeviKDQ"
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
