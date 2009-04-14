@@ -119,9 +119,9 @@ module OAuth
       response=request(http_method,path,token,request_options,*arguments)
       if response.code=="200"
         temp = CGI.parse(response.body).inject({}){|h,(k,v)| h[k.to_sym]=v.join('&');h}
-	temp[:"resource_names[]"] = temp[:"resource_names[]"].split('&') if temp[:"resource_names[]"]
-	temp[:"resource_urls[]"] = temp[:"resource_urls[]"].split('&') if temp[:"resource_urls[]"]
-	return temp
+	      temp[:"resource_names[]"] = temp[:"resource_names[]"].split('&') if temp[:"resource_names[]"]
+	      temp[:"resource_urls[]"] = temp[:"resource_urls[]"].split('&') if temp[:"resource_urls[]"]
+	      return temp
       else 
         response.error! 
       end

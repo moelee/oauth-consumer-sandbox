@@ -64,7 +64,7 @@ module OAuth
     def get_access_token(options={})
       response=consumer.token_request(consumer.http_method,consumer.access_token_url,self,options)
       # Maps resource name to urls i.e. {'photos' => 'http://photos.com', 'address_books' => 'http://addressbooks.com'}
-      resource_scope = Hash[*(response["resource_names[]"].zip(response["resource_urls[]"]).flatten)]
+      resource_scope = Hash[*(response[:"resource_names[]"].zip(response[:"resource_urls[]"]).flatten)]
       OAuth::AccessToken.new(consumer,response[:oauth_token],response[:oauth_token_secret],resource_scope,response[:expires_on])
     end
   end
