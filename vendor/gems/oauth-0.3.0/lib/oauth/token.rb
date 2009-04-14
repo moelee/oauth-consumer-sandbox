@@ -75,7 +75,7 @@ module OAuth
     
     # Need to initialize instance variables for resource scopes and expires_on
     def initialize(consumer,token="",secret="", resource_scope = {}, expires_on="")
-      super
+      super consumer, token, secret
       @expires_on = expires_on
       @resource_scope = resource_scope
     end
