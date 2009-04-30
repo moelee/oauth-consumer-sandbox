@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1.xml
   def show
     @blog = @user.blogs.find(params[:id])
+    @posts = @blog.posts
 
     respond_to do |format|
       format.html # show.html.erb

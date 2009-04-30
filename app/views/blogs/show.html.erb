@@ -1,13 +1,8 @@
-<p>
-  <b>Id:</b>
-  <%=h @blog.id %>
-</p>
+<h3><%= @blog.name %></h3>
 
-<p>
-  <b>Name:</b>
-  <%=h @blog.name %>
-</p>
+<% for post in @posts %>
+	<h2><%= post.title %></h2>
+	<p><%= post.content %></p>
+<% end %>
 
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<%= link_to 'Back to Blogs', user_blogs_path(@user) %>

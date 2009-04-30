@@ -8,9 +8,9 @@
 <% for blog in @blogs %>
   <tr>
     <td><%=h blog.name %></td>
-    <td><%= link_to 'Show', blog %></td>
+    <td><%= link_to 'Show', user_blog_path(@user, blog) %></td>
     <td><%= link_to 'Edit', edit_user_blog_path(@user, blog) %></td>
-    <td><%= link_to 'Destroy', user_blog(@user), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', user_blog_path(@user, blog), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
