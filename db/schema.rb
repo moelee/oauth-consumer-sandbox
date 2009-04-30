@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090430085111) do
+ActiveRecord::Schema.define(:version => 20090430152952) do
+
+  create_table "access_tokens", :force => true do |t|
+    t.string "token"
+    t.string "secret"
+    t.text   "resource_scope"
+    t.string "expires_on"
+  end
 
   create_table "blogs", :force => true do |t|
     t.string   "name"
