@@ -1,5 +1,5 @@
 class OauthsController < ApplicationController
-  #before_filter :must_be_logged_in
+  before_filter :login_required
 
   # Placeholder page before entering the oauth sequence to import resources
   def welcome
@@ -24,7 +24,7 @@ class OauthsController < ApplicationController
     @request_token=OAuth::RequestToken.new(@consumer, session[:request_token], session[:request_token_secret])
     @access_token = @request_token.get_access_token
     # Store access token in database
-    
+    current_user.access_tokens.create(:token => @access_token.token, :secret => @access_token.secret, :resource_scope => @access_token.resource_scope.to_json, :expires_on => @access_token.expires_on)
     @photos = @access_token.get('/photos.xml').body
     
   end
