@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :oauth, :collection => {:welcome => :get, :import_resources => :get, :callback => :get}
   
+  map.resource :dashboard
   #map.resources :posts, :has_many => :comments
 
   #map.resources :blogs, :has_many => :posts
