@@ -1,0 +1,7 @@
+<p><%= link_to 'Logout', logout_path %></p>
+<%= flash[:notice] if flash[:notice] %>
+<h1>Welcome to the BlogApp, <%= current_user.login %>!</h1>
+
+<p><%= link_to 'Manage Your Blogs', user_blogs_path(current_user) %></p>
+
+<%= link_to "Import photos and contacts from Moses's PhotoApp and AddressBookApp!", welcome_oauth_path %>

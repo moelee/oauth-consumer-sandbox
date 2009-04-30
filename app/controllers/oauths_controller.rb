@@ -2,7 +2,7 @@ class OauthsController < ApplicationController
   before_filter :login_required
 
   # Placeholder page before entering the oauth sequence to import resources
-  def welcome
+  def show
   end
 
   def import_resources
