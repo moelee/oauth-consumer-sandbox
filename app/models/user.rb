@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   
   has_many :photos
   has_many :blogs
+  has_many :access_tokens
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40

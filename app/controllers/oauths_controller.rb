@@ -20,8 +20,11 @@ class OauthsController < ApplicationController
     # Create a consumer object
     @consumer = OAuth::Consumer.new(ENV['OAUTH_KEY'], ENV['OAUTH_SECRET'], {:site => ENV['OAUTH_SITE']})
     
+    # Get an access token
     @request_token=OAuth::RequestToken.new(@consumer, session[:request_token], session[:request_token_secret])
     @access_token = @request_token.get_access_token
+    # Store access token in database
+    
     @photos = @access_token.get('/photos.xml').body
     
   end

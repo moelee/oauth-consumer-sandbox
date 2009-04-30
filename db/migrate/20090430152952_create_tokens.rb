@@ -5,6 +5,7 @@ class CreateTokens < ActiveRecord::Migration
       t.string :secret
       t.text :resource_scope
       t.string :expires_on
+      t.integer :user_id
     end
   end
 
