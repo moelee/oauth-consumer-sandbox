@@ -1,3 +1,6 @@
 <%= flash[:notice] if flash[:notice] %>
 <p>Hello, <%= @user.login %></p>
+
+<p>Click <%= link_to 'here', user_blogs_path(current_user) %> to manage your blogs</p>
+
 <p><%= link_to 'Logout', logout_path %></p>

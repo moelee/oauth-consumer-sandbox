@@ -1,8 +1,10 @@
 class BlogsController < ApplicationController
+  before_filter :get_user
+  
   # GET /blogs
   # GET /blogs.xml
   def index
-    @blogs = Blog.find(:all)
+    @blogs = @user.blogs
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.xml
   def show
-    @blog = Blog.find(params[:id])
+    @blog = @user.blogs.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   # GET /blogs/new.xml
   def new
-    @blog = Blog.new
+    @blog = @user.blogs.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
-    @blog = Blog.find(params[:id])
+    @blog = @user.blogs.find(params[:id])
   end
 
   # POST /blogs
   # POST /blogs.xml
   def create
-    @blog = Blog.new(params[:blog])
+    @blog = @user.blogs.new(params[:blog])
 
     respond_to do |format|
       if @blog.save
@@ -57,7 +59,7 @@ class BlogsController < ApplicationController
   # PUT /blogs/1
   # PUT /blogs/1.xml
   def update
-    @blog = Blog.find(params[:id])
+    @blog = @user.blogs.find(params[:id])
 
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
@@ -74,12 +76,17 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   # DELETE /blogs/1.xml
   def destroy
-    @blog = Blog.find(params[:id])
+    @blog = @user.blogs.find(params[:id])
     @blog.destroy
 
     respond_to do |format|
       format.html { redirect_to(blogs_url) }
       format.xml  { head :ok }
     end
+  end
+  
+protected
+  def get_user
+    @user = User.find(params[:user_id])
   end
 end
