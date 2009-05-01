@@ -3,6 +3,12 @@
 
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
+  include SslRequirement
+  ssl_required
+  
+  def ssl_required?
+    Rails.env.production?
+  end
     
   helper :all # include all helpers, all the time
 

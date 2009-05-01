@@ -26,4 +26,4 @@ config.action_controller.perform_caching             = true
 # Key/secret for OAuth on AuthSP (production)
 ENV['OAUTH_KEY'] = 'TaNOoFAMYfyp2qALsJ2emg'
 ENV['OAUTH_SECRET'] = 'lDGT5qlI6C0NLw7wHO5nL105fo4wCVF1Q65G9TC8CY'
-ENV['OAUTH_SITE'] = 'http://photorepo.heroku.com'
+ENV['OAUTH_SITE'] = 'https://photorepo.heroku.com'
