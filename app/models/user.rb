@@ -50,6 +50,19 @@ class User < ActiveRecord::Base
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
   end
+  
+  def valid_access_token
+    if !access_tokens.empty?
+      if access_tokens.last.expires_on > Time.now
+        consumer = OAuth::Consumer.new(ENV['OAUTH_KEY'], ENV['OAUTH_SECRET'], {:site => ENV['OAUTH_SITE']})
+        access_token = OAuth::AccessToken.new(consumer, access_tokens.last.token, access_tokens.last.secret, ActiveSupport::JSON.decode(access_tokens.last.resource_scope), access_tokens.last.expires_on.to_i.to_s)
+      else
+        nil
+      end
+    else
+      nil
+    end
+  end
 
   protected
     

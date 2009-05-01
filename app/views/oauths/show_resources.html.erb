@@ -1,0 +1,53 @@
+<%= link_to 'Back to Dashboard', dashboard_path %>
+
+<h3>Your Imported Photos</h3>
+<% if !@photos['photos'].empty? %>
+<table>
+	<tr>
+		<th>Filename</th>
+		<th>Width</th>
+		<th>Height</th>
+		<th>Created</th>
+		<th>Link To Photo</th>
+	</tr>
+	<% @photos['photos'].each do |photo| %>
+	<tr>
+		<td><%= photo['filename'] %></td>
+		<td><%= photo['width'] %></td>
+		<td><%= photo['height'] %></td>
+		<td><%= photo['created_at'] %></td>
+		<td><%= link_to 'See', photo['public_filename'] %>
+	</tr>
+	<% end %>
+</table>
+<% else %>
+	<p>No photos exist!</p>
+<% end %>
+
+<h3>Your Imported Contacts</h3>
+<% if !@contacts['contacts'].empty? %>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Phone</th>
+		<th>Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Postal Code</th>
+		<th>Updated</th>
+	</tr>
+	<% @contacts['contacts'].each do |contact| %>
+	<tr>
+		<td><%= contact['name'] %></td>
+		<td><%= contact['phone'] %></td>
+		<td><%= contact['address'] %></td>
+		<td><%= contact['city'] %></td>
+		<td><%= contact['state'] %></td>
+		<td><%= contact['postal_code'] %></td>
+		<td><%= contact['updated_at'] %></td>
+	</tr>
+	<% end %>
+</table>
+<% else %>
+	<p>No photos exist!</p>
+<% end %>
