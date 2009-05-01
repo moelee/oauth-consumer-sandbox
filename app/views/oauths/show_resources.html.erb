@@ -1,7 +1,7 @@
 <%= link_to 'Back to Dashboard', dashboard_path %>
 
 <h3>Your Imported Photos</h3>
-<% if !@photos['photos'].empty? %>
+<% if @photos['photos'] %>
 <table>
 	<tr>
 		<th>Filename</th>
@@ -25,7 +25,7 @@
 <% end %>
 
 <h3>Your Imported Contacts</h3>
-<% if !@contacts['contacts'].empty? %>
+<% if @contacts['contacts'] %>
 <table>
 	<tr>
 		<th>Name</th>
@@ -49,5 +49,5 @@
 	<% end %>
 </table>
 <% else %>
-	<p>No photos exist!</p>
+	<p>No contacts exist!</p>
 <% end %>
