@@ -4,7 +4,6 @@ class OauthsController < ApplicationController
 
   # Placeholder page before entering the oauth sequence to import resources
   def show
-    redirect_to show_resources_oauth_path if current_user.valid_access_token
   end
   
   def show_resources
