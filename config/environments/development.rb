@@ -15,3 +15,8 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+
+# Key/secret for OAuth on AuthSP (development)
+ENV['OAUTH_KEY'] = 'vFxTIyt66ADFDisgmAw'
+ENV['OAUTH_SECRET'] = 'blMLyefYPobk62XCvshKpM1M4nFGfSEp0Im0jIEsYo'
+ENV['OAUTH_SITE'] = 'http://localhost:3001'
