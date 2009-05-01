@@ -12,7 +12,18 @@
 <%= check_box_tag 'remember_me', '1', @remember_me %></p>
 -->
 
+<p>
+  ...or use:
+</p>
+
+<p>
+  <label for="openid_url">OpenID:</label>
+  <%= text_field_tag "openid_url" %>
+</p>
+
 <p><%= submit_tag 'Log in' %></p>
 
 <p><%= link_to 'Register', signup_path %></p>
 <% end -%>
+
+<h3>Log In</h3>
