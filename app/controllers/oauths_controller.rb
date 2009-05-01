@@ -30,7 +30,7 @@ class OauthsController < ApplicationController
     current_user.access_tokens.create(:token => @access_token.token, :secret => @access_token.secret, :resource_scope => @access_token.resource_scope.to_json, :expires_on => Time.at(@access_token.expires_on.to_i))
     
     # Redirect to OAuth show
-    redirect_to oauth_path
+    redirect_to show_resources_oauth_path
     
   end
   
