@@ -9,9 +9,9 @@ class OauthsController < ApplicationController
   
   def show_resources
     abs_url = current_user.valid_access_token.resource_scope['photos']
-    @photos = Hash.from_xml(current_user.valid_access_token.get("#{abs_url}/photos.xml").body)
+    @photos = Hash.from_xml(current_user.valid_access_token.get("#{abs_url}/photos.xml").body) rescue {}
     abs_url = current_user.valid_access_token.resource_scope['contacts']
-    @contacts = Hash.from_xml(current_user.valid_access_token.get("#{abs_url}/contacts.xml").body)    
+    @contacts = Hash.from_xml(current_user.valid_access_token.get("#{abs_url}/contacts.xml").body) rescue {}
   end
 
   def import_resources
